@@ -107,7 +107,7 @@ def main():
 
         begin = torch.zeros_like(target_lengths)
         boundary = torch.stack(
-            [begin, begin, target_lengths, encoder_out_lengths], dim=1
+            [begin, begin, target_lengths, encoder_out_lengths], dim=1  # [B, 4] 
         )
         simple_loss, (px_grad, py_grad) = k2.rnnt_loss_smoothed(
             lm=decoder_out,
